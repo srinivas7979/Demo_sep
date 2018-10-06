@@ -25,5 +25,8 @@ pipeline {
                
             }
         }
+       sshagent(['tomcat_server_root']) {
+    		sh 'scp "${WORKSPACE}/*.war" 192.168.33.20:/opt/apache-tomcat-8.5.32/webapps/'
+	}
     }
 }
